@@ -1,3 +1,11 @@
+import Category from "@/app/components/icons/category";
+import Logs from "@/app/components/icons/clipboard";
+import Templates from "@/app/components/icons/cloud_download";
+import Home from "@/app/components/icons/home";
+import Payment from "@/app/components/icons/payment";
+import Settings from "@/app/components/icons/settings";
+import Workflows from "@/app/components/icons/workflows";
+
 export const clients = [...new Array(10)].map((client, index) => ({
   id: index + 1,
   href: `/${index + 1}.png`,
@@ -83,4 +91,14 @@ export const products = [
     link: "https://efreeinvoice.com",
     thumbnail: "/p3.png",
   },
+];
+
+export const menuOptions = [
+  { name: "Dashboard", Component: Home, href: "/dashboard" },
+  { name: "Workflows", Component: Workflows, href: "/workflows" },
+  { name: "Settings", Component: Settings, href: "/settings" },
+  { name: "Connections", Component: Category, href: "/connections" },
+  { name: "Billing", Component: Payment, href: "/billing" },
+  { name: "Templates", Component: Templates, href: "/templates" },
+  { name: "Logs", Component: Logs, href: "/logs" },
 ];

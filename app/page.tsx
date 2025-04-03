@@ -1,15 +1,15 @@
-import { ContainerScroll } from "@/components/globals/Component-scroll";
-import Navbar from "@/components/globals/navbar";
-import { Button } from "@/components/ui/button";
+import { ContainerScroll } from "@/app/components/globals/Component-scroll";
+import Navbar from "@/app/components/globals/navbar";
+import { Button } from "@/app/components/ui/button";
 import Image from "next/image";
-import { InfiniteMovingCardsDemo } from "@/components/globals/infinite-movingcards";
-import { HeroParallax } from "@/components/globals/parallax";
+import { InfiniteMovingCardsDemo } from "@/app/components/globals/infinite-movingcards";
+import { HeroParallax } from "@/app/components/globals/parallax";
 import { products } from "@/lib/constant";
-import { LampComponent } from "@/components/globals/lamp";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { LampComponent } from "@/app/components/globals/lamp";
+import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
 import { CheckIcon } from "lucide-react";
-
-
+import { HeroVideoDialog } from "@/app/components/globals/hero-video-dialog";
+import { TextShimmer } from "@/app/components/ui/text-shimmer";
 
 export default function Home() {
   return (
@@ -20,9 +20,7 @@ export default function Home() {
         <div className="absolute inset-0 h-full w-full items-center px-5 py-24 bg-[radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]"></div>
      
       <div className="flex flex-col mt-[-100px] md:mt-[-50px]">
-      {
-        //continue with component-scroll 
-      }
+     
       <ContainerScroll
       titleComponent={<div className="flex items-center flex-col">
         <Button
@@ -41,8 +39,27 @@ export default function Home() {
       </div>
       </section>
 
+      <section className="w-full pt-35 mt-[400px] md:mt-[250px]">
+        <div className="relative max-w-3xl mx-auto">
+          <TextShimmer as="h2" className="text-3xl font-bold text-center mb-8 mx-auto w-full">Project Demo</TextShimmer>
+          <HeroVideoDialog
+            className="dark:hidden block"
+            animationStyle="from-center"
+            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+            thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+            thumbnailAlt="Hero Video"
+          />
+          <HeroVideoDialog
+            className="hidden dark:block"
+            animationStyle="from-center"
+            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+            thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+            thumbnailAlt="Hero Video"
+          />
+        </div>
+      </section>
 
-      <section className="md:mt-[20rem] mt-[4rem] w-full">
+      <section className="md:mt-[2rem] mt-[2rem] w-full">
         <InfiniteMovingCardsDemo />
       </section>
 
