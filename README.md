@@ -29,7 +29,9 @@
   <summary>user signup flow</summary>
 
   ### User Sign-Up Flow
-  ![image](https://github.com/user-attachments/assets/a76a3aa0-6955-4069-a887-e30cafd6e14e)
+ User Sign-Up Process
+![image](https://github.com/user-attachments/assets/bb85f679-59c0-4dd0-906d-4b09e5d171ce)
+
 
 
   Here's the step-by-step process when a new user signs up:
