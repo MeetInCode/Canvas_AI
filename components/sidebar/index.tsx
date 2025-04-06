@@ -7,10 +7,10 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/app/components/ui/tooltip'
+} from '@/components/ui/tooltip'
 import { menuOptions } from '@/lib/constant'
 import clsx from 'clsx'
-import { Separator } from '@/app/components/ui/separator'
+import { Separator } from '@/components/ui/separator'
 import { Database, GitBranch, LucideMousePointerClick, Moon, Sun } from 'lucide-react'
 import { ModeToggle } from '../globals/mode-toggle'
 import { useTheme } from 'next-themes'
@@ -40,7 +40,7 @@ const MenuOptions = (props: Props) => {
       backgroundColor: isLight ? 'white' : 'black',
       color: isLight ? 'black' : 'white',
       borderRight: isLight ? '1px solid #e5e7eb' : '1px solid #374151'
-    }} className="fixed left-0 h-screen flex items-center flex-col gap-6 py-4 px-1">
+    }} className="fixed left-0 h-screen flex items-center flex-col gap-6 py-4 px-1 z-[51]">
       <div className="flex items-center justify-center flex-col gap-6">
         <Link
           className="flex font-bold flex-row "

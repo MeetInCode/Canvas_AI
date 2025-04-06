@@ -1,10 +1,10 @@
-import Category from "@/app/components/icons/category";
-import Logs from "@/app/components/icons/clipboard";
-import Templates from "@/app/components/icons/cloud_download";
-import Home from "@/app/components/icons/home";
-import Payment from "@/app/components/icons/payment";
-import Settings from "@/app/components/icons/settings";
-import Workflows from "@/app/components/icons/workflows";
+import Category from "@/components/icons/category";
+import Logs from "@/components/icons/clipboard";
+import Templates from "@/components/icons/cloud_download";
+import Home from "@/components/icons/home";
+import Payment from "@/components/icons/payment";
+import Settings from "@/components/icons/settings";
+import Workflows from "@/components/icons/workflows";
 
 export const clients = [...new Array(10)].map((client, index) => ({
   id: index + 1,

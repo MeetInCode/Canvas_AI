@@ -1,15 +1,15 @@
-import { ContainerScroll } from "@/app/components/globals/Component-scroll";
-import Navbar from "@/app/components/globals/navbar";
-import { Button } from "@/app/components/ui/button";
+import { ContainerScroll } from "@/components/globals/Component-scroll";
+import Navbar from "@/components/globals/navbar";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { InfiniteMovingCardsDemo } from "@/app/components/globals/infinite-movingcards";
-import { HeroParallax } from "@/app/components/globals/parallax";
+import { InfiniteMovingCardsDemo } from "@/components/globals/infinite-movingcards";
+import { HeroParallax } from "@/components/globals/parallax";
 import { products } from "@/lib/constant";
-import { LampComponent } from "@/app/components/globals/lamp";
-import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
+import { LampComponent } from "@/components/globals/lamp";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { CheckIcon } from "lucide-react";
-import { HeroVideoDialog } from "@/app/components/globals/hero-video-dialog";
-import { TextShimmer } from "@/app/components/ui/text-shimmer";
+import { HeroVideoDialog } from "@/components/globals/hero-video-dialog";
+import { TextShimmer } from "@/components/ui/text-shimmer";
 
 export default function Home() {
   return (
