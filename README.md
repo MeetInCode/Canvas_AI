@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Webhook Concept](#webhook-concept)
-- [UI Components](#ui-components)
+- [user signup flow](#user-signup)
 
 <details>
   <summary>Webhook Concept</summary>
