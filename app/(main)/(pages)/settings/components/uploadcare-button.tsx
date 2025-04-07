@@ -3,20 +3,30 @@
 import React from 'react'
 import { FileUploaderRegular } from '@uploadcare/react-uploader/next';
 import '@uploadcare/react-uploader/core.css';
+import { Button } from '@/components/ui/button';
+import { Upload } from 'lucide-react';
+
 type Props = {
-  onUpload: (fileInfo: any) => void
+  onUpload: (fileInfo: { cdnUrl: string }) => void
 }
 
 const UploadCareButton = ({ onUpload }: Props) => {
   return (
-    <div>
+    <div className="flex flex-col items-center gap-4">
       <FileUploaderRegular
-         sourceList="local, camera, facebook, gdrive"
-         cameraModes="photo, video"
-         classNameUploader="uc-light"
-         pubkey="424fd341ee7513f5df48"
-         onChange={onUpload}
+        sourceList="local, camera, facebook, gdrive"
+        cameraModes="photo"
+        classNameUploader="uc-light"
+        pubkey="424fd341ee7513f5df48"
+        onChange={(fileInfo) => {
+          if (fileInfo?.successEntries?.[0]?.cdnUrl) {
+            onUpload({ cdnUrl: fileInfo.successEntries[0].cdnUrl });
+          }
+        }}
+        maxLocalFileSizeBytes={5000000} // 5MB limit
+        multiple={false}
       />
+      <p className="text-sm text-gray-500">Supported formats: JPG, PNG, GIF (max 5MB)</p>
     </div>
   )
 }

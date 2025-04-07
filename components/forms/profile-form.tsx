@@ -1,6 +1,6 @@
 'use client'
 
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -15,10 +15,16 @@ import {
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { updateUserProfile } from '@/app/actions/user'
+import { toast } from 'sonner'
 
 type Props = {
-  user: any
-  onUpdate?: any
+  user: {
+    name: string
+    email: string
+    clerkId: string
+  }
 }
 
 const EditUserProfileSchema = z.object({
@@ -26,8 +32,10 @@ const EditUserProfileSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" })
 })
 
-const ProfileForm = ({ user, onUpdate }: Props) => {
+const ProfileForm = ({ user }: Props) => {
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+  
   const form = useForm<z.infer<typeof EditUserProfileSchema>>({
     mode: 'onChange',
     resolver: zodResolver(EditUserProfileSchema),
@@ -40,9 +48,31 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
   const handleSubmit = async (
     values: z.infer<typeof EditUserProfileSchema>
   ) => {
-    setIsLoading(true)
-    await onUpdate(values.name)
-    setIsLoading(false)
+    try {
+      setIsLoading(true)
+      
+      // Validate that we have a clerkId
+      if (!user.clerkId) {
+        toast.error("User ID is missing. Please try again later.")
+        return
+      }
+      
+      const result = await updateUserProfile(user.clerkId, {
+        name: values.name,
+        email: values.email,
+      })
+      
+      if (result.success) {
+        toast.success('Profile updated successfully')
+        router.refresh()
+      } else {
+        toast.error(result.error || 'Failed to update profile')
+      }
+    } catch (error) {
+      toast.error('An unexpected error occurred. Please try again later.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {

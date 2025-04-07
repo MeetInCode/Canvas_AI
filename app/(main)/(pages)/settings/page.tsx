@@ -1,25 +1,44 @@
-// import ProfileForm from '@/components/forms/profile-form'
-// import React from 'react'
-// import ProfilePicture from './_components/profile-picture'
-// import { db } from '@/lib/db'
-// import { currentUser } from '@clerk/nextjs'
-
 import ProfileForm from "@/components/forms/profile-form"
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import ProfilePicture from "./components/profile-picture"
 import { db } from "@/lib/db"
-// import ProfilePicture from './_components/profile-picture'
-// import { db } from '@/lib/db'
-// import { currentUser } from '@clerk/nextjs'
+
+import { currentUser } from '@clerk/nextjs/server'
 
 type Props = {}
 
 const Settings = async (props: Props) => {
-//   const authUser = await currentUser()
-//   if (!authUser) return null
+  const authUser = await currentUser()
+  if (!authUser) return null
 
-//   const user = await db.user.findUnique({ where: { clerkId: authUser.id } })
+  console.log("Auth user:", authUser.id)
+  
+  // Fetch user from database
+  const user = await db.user.findUnique({ 
+    where: { clerkId: authUser.id } 
+  })
+  
+  console.log("✅✅ User data fetched from database:")
+  
+  // If user doesn't exist in our database, create them
+  if (!user) {
+    console.log("User not found in database, creating new user")
+    try {
+      const newUser = await db.user.create({
+        data: {
+          clerkId: authUser.id,
+          email: authUser.emailAddresses[0]?.emailAddress || "",
+          name: authUser.firstName || "",
+          profileImage: authUser.imageUrl || "",
+        }
+      })
+      console.log("✅✅ New user created in database:")
+    } catch (error) {
+      console.error("Failed to create user in database:", error)
+    }
+  }
+  
   const removeProfileImage = async () => {
     'use server'
     const response = await db.user.update({
@@ -30,47 +49,49 @@ const Settings = async (props: Props) => {
         profileImage: '',
       },
     })
+    console.log("✅✅ Profile image removed from database")
     return response
   }
 
-//   const uploadProfileImage = async (image: string) => {
-//     'use server'
-//     const id = authUser.id
-//     const response = await db.user.update({
-//       where: {
-//         clerkId: id,
-//       },
-//       data: {
-//         profileImage: image,
-//       },
-//     })
+  const uploadProfileImage = async (image: string) => {
+    'use server'
+    const id = authUser.id
+    const response = await db.user.update({
+      where: {
+        clerkId: id,
+      },
+      data: {
+        profileImage: image,
+      },
+    })
+    console.log("✅✅ Profile image uploaded to database")
+    return response
+  }
 
-//     return response
-//   }
+  const updateUserInfo = async (name: string) => {
+    'use server'
 
-//   const updateUserInfo = async (name: string) => {
-//     'use server'
-
-//     const updateUser = await db.user.update({
-//       where: {
-//         clerkId: authUser.id,
-//       },
-//       data: {
-//         name,
-//       },
-//     })
-//     return updateUser
-//   }
+    const updateUser = await db.user.update({
+      where: {
+        clerkId: authUser.id,
+      },
+      data: {
+        name,
+      },
+    })
+    console.log("✅✅ User information updated in database")
+    return updateUser
+  }
 
   const mockUser = {
     name: "",
     email: ""
   }
 
-  const handleUpdate = (name: string) => {
-    console.log("User name updated:", name)
-    // This would typically call a server action
-  }
+  // const handleUpdate = (name: string) => {
+  //   console.log("User name updated:", name)
+  //   // This would typically call a server action
+  // }
 
   return (
     <div className="container max-w-4xl mx-auto py-6">
@@ -85,16 +106,20 @@ const Settings = async (props: Props) => {
           <CardDescription>
             Add or update your personal information
           </CardDescription>
-
-        
         </CardHeader>
         <CardContent>
-          <ProfilePicture userImage={null} onUpload={undefined}></ProfilePicture>
-          <ProfileForm user={mockUser}  />
+          <ProfileForm user={user ? {
+            name: user.name || '',
+            email: user.email,
+            clerkId: user.clerkId
+          } : {
+            name: authUser.firstName || '',
+            email: authUser.emailAddresses[0]?.emailAddress || '',
+            clerkId: authUser.id
+          }} />
         </CardContent>
       </Card>
 
-      {/* Uncomment when ready to implement
       <Card>
         <CardHeader>
           <CardTitle>Profile Picture</CardTitle>
@@ -105,12 +130,11 @@ const Settings = async (props: Props) => {
         <CardContent>
           <ProfilePicture
             onDelete={removeProfileImage}
-            userImage={user?.profileImage || ''}
+            userImage={user?.profileImage || null}
             onUpload={uploadProfileImage}
           />
         </CardContent>
       </Card> 
-      */}
     </div>
   )
 }

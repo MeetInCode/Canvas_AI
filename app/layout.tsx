@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/themeprovider/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import {
   ClerkProvider,
   SignInButton,
@@ -47,6 +48,7 @@ export default function RootLayout({
               </SignedIn>
             </header>
             {children}
+            <Toaster />
           </ThemeProvider>
         </ClerkProvider>
       </body>

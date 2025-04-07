@@ -12,7 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-// import { UserButton } from '@clerk/nextjs'
+import { UserButton } from '@clerk/nextjs'
 // import { useBilling } from '@/providers/billing-provider'
 // import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/payment-connecetions'
 
@@ -138,31 +138,9 @@ const InfoBar = (props: Props) => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip delayDuration={0}>
-            <TooltipTrigger asChild>
-              <button className="p-2 rounded-full transition-all duration-200 hover:bg-opacity-20 hover:bg-black/5 dark:hover:bg-white/5"
-                style={{ 
-                  backgroundColor: isLight ? 'rgba(0, 0, 0, 0)' : 'rgba(255, 255, 255, 0)'
-                }}>
-                <div className="h-5 w-5">
-                  <Templates selected={false} />
-                </div>
-              </button>
-            </TooltipTrigger>
-            <TooltipContent
-              className="backdrop-blur-xl border border-opacity-20"
-              style={{
-                backgroundColor: isLight ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)',
-                borderColor: isLight ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <p>Templates</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+       
       </div>
-      {/* <UserButton /> */}
+      <UserButton />
     </div>
   )
 }
