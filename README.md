@@ -6,6 +6,7 @@
 - [User Signup Flow](#user-signup)
 - [Modal Provider](#modal-provider)
 - [Reducer-Based State Management](#reducer-based-state-management)
+- [setups](#setups)
 
 <details>
   <summary>Webhook Concept</summary>
@@ -427,5 +428,16 @@ export default CounterWithUndoRedo;
 - Clean separation of concerns
 - Reusable context pattern
 - Responsive UI with Tailwind CSS
+
+</details>
+
+<details>
+  <summary>setups</summary>
+  
+  ## gdrive
+
+  --------------------------------
+  ## notion
+  https://developers.notion.com/docs/create-a-notion-integration
 
 </details>
