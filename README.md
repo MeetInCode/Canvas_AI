@@ -470,10 +470,23 @@ also create a webhook in clerk for user created and updated
 ![image](https://github.com/user-attachments/assets/9f087cbc-4221-4df0-9c69-ede6cf00a039)
 ![image](https://github.com/user-attachments/assets/3e35b70d-f342-4813-adf1-bf3b4ce19ab7)
 ![image](https://github.com/user-attachments/assets/24caa6d3-7d3a-44cd-9fa2-85b64a779e1f)
+![image](https://github.com/user-attachments/assets/91575c12-3162-469b-a7f1-c58c3f792022)
+![image](https://github.com/user-attachments/assets/2252c758-7d92-47ed-aee4-a90564b597b4)
+![image](https://github.com/user-attachments/assets/02b73cd0-c282-4962-847d-bcb23c9568ac)
+
 do not forget to save changes
 
 
+-----------------------------------------
+## discord 
+https://discord.com/developers/applications
+create a new application and get client id and reset secret
+then do this in oauth
+![image](https://github.com/user-attachments/assets/fcb1a1f0-88e4-429b-8f69-e71e7f992f05)
 
+
+![image](https://github.com/user-attachments/assets/47dc4684-e357-4378-87fb-43566fcdb9a1)
+copy generated url  
 
 
 </details>
