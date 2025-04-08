@@ -445,11 +445,34 @@ https://www.googleapis.com/auth/drive.readonly
 
 ![image](https://github.com/user-attachments/assets/687c88f1-fbb9-4483-8784-173389e3bc92)
 
+also create a webhook in clerk for user created and updated
+![image](https://github.com/user-attachments/assets/46234499-7a2c-4733-886a-074a790841d0)
+![image](https://github.com/user-attachments/assets/b7a0f844-78d6-4dee-9119-f39baa201bdc)
+
+
+
   --------------------------------
   ## notion
   https://developers.notion.com/docs/create-a-notion-integration
   ![image](https://github.com/user-attachments/assets/f7f0626c-6c54-4f0d-aecc-f5768c179989)
   ![image](https://github.com/user-attachments/assets/61a1e532-4d4f-426c-83c9-5fa22f603f88)
+
+  take api secret , client id , auth url 
+
+  ----------------------------------------
+  ## slack
+  https://api.slack.com/apps
+  create a app from scratch
+
+  then scroll below from app infroramation and u will find App-Level Tokens
+  create 2 tokens
+
+![image](https://github.com/user-attachments/assets/9f087cbc-4221-4df0-9c69-ede6cf00a039)
+![image](https://github.com/user-attachments/assets/3e35b70d-f342-4813-adf1-bf3b4ce19ab7)
+![image](https://github.com/user-attachments/assets/24caa6d3-7d3a-44cd-9fa2-85b64a779e1f)
+do not forget to save changes
+
+
 
 
 
