@@ -8,7 +8,7 @@ const Layout = (props: Props) => {
   return (
     <div className="flex overflow-hidden h-screen">
       <Sidebar />
-      <div className="w-full ml-[60px] mt-9">
+      <div className="w-full">
         <InfoBar />
         {props.children}
       </div>
