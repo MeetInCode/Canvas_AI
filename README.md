@@ -435,9 +435,22 @@ export default CounterWithUndoRedo;
   <summary>setups</summary>
   
   ## gdrive
+  Google Scopes for clerk
+
+https://www.googleapis.com/auth/userinfo.email
+https://www.googleapis.com/auth/userinfo.profile
+https://www.googleapis.com/auth/drive.activity.readonly
+https://www.googleapis.com/auth/drive.metadata
+https://www.googleapis.com/auth/drive.readonly
+
+![image](https://github.com/user-attachments/assets/687c88f1-fbb9-4483-8784-173389e3bc92)
 
   --------------------------------
   ## notion
   https://developers.notion.com/docs/create-a-notion-integration
+  ![image](https://github.com/user-attachments/assets/f7f0626c-6c54-4f0d-aecc-f5768c179989)
+  ![image](https://github.com/user-attachments/assets/61a1e532-4d4f-426c-83c9-5fa22f603f88)
+
+
 
 </details>
